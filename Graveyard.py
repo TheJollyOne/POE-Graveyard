@@ -1,14 +1,34 @@
-from PyQt5.QtWidgets import QApplication, QTableWidget, QComboBox, QWidget, QVBoxLayout, QPushButton, QMessageBox
-from PyQt5.QtWidgets import QListView, QCompleter
+from PyQt5.QtWidgets import QApplication, QTableWidget, QLineEdit, QWidget, QVBoxLayout, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QListView, QCompleter, QTableWidgetItem, QSizePolicy
 from PyQt5.QtCore import Qt, QSize
+from PyQt5 import QtGui
 import sys
 import json
-from icecream import ic
+from functools import partial
+
+
+def focusInEvent(line_edit, completer, event):
+    QLineEdit.focusInEvent(line_edit, event)
+    if event.reason() == Qt.MouseFocusReason:
+        completer.complete()
 
 
 class TableWidget(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle('POE-Graveyard')
+        self.setStyleSheet("""
+            QLineEdit { background-color: #3E424B; color: #C4C3D0; }
+            QLineEdit[readOnly="true"] { background-color: #808080; color: #C4C3D0; }
+            QPushButton { background-color: #2f2f2f; color: #C4C3D0; }
+            QPushButton:hover { background-color: #3E424B; }
+            QPushButton:pressed { background-color: #6F7678; }
+            QTableWidget { background-color: #2f2f2f; color: #C4C3D0; }
+            QWidget { background-color: #2f2f2f; }
+            QListView { background-color: #2f2f2f; color: #C4C3D0; }
+            QMessageBox { background-color: #2f2f2f; color: #C4C3D0; }
+            QMessageBox QLabel { background-color: #2f2f2f; color: #C4C3D0; }
+        """)
 
         self.table = QTableWidget(8, 17)
         layout = QVBoxLayout()
@@ -26,16 +46,7 @@ class TableWidget(QWidget):
 
         for i in range(8):  # Для каждого ряда
             for j in range(17):  # Для каждой колонки
-                combo = QComboBox()
-                combo.setEditable(True)
-                combo.view().setMinimumWidth(500)  # Устанавливаем минимальную ширину выпадающего списка
-                # Устанавливаем фон выпадающего списка в белый
-                combo.view().setStyleSheet("QAbstractItemView {"
-                                           "background-color: white; }")
-                combo.addItem("")  # Добавляем пустой элемент
-                for mod in self.mods:
-                    combo.addItem(mod['name'])
-
+                item = QTableWidgetItem()
                 if not (
                     (i == 0 and 3 <= j <= 14) or
                     (i == 1 and 5 <= j <= 9) or
@@ -46,88 +57,79 @@ class TableWidget(QWidget):
                     (i == 6 and (4 <= j <= 5 or 13 <= j <= 14)) or
                     (i == 7 and 8 <= j <= 9)
                 ):
-                    # Создаем QCompleter с элементами из списка mods
-                    completer = QCompleter([mod['name'] for mod in self.mods], combo)
+                    line_edit = QLineEdit()
+                    line_edit.setStyleSheet("""
+                                            QLineEdit { background-color: #2f2f2f; color: #C4C3D0; }
+                                            QListView { background-color: #2f2f2f; color: #C4C3D0; }
+                                            """)
 
-                    # Создаем QListView и устанавливаем его ширину
+                    line_edit.setReadOnly(False)  # разрешаем ввод текста
+                    completer = QCompleter([mod['name'] for mod in self.mods], line_edit)
                     popup = QListView()
+                    popup.setStyleSheet("""
+                                        QListView { background-color: #2f2f2f; color: #C4C3D0; }
+                                        """)
                     popup.setMinimumWidth(500)
-
-                    # Устанавливаем QListView в качестве выпадающего списка для QCompleter
                     completer.setPopup(popup)
-
-                    # Устанавливаем чувствительность к регистру для QCompleter
                     completer.setCaseSensitivity(Qt.CaseInsensitive)
-                    # Устанавливаем режим фильтрации для QCompleter
                     completer.setFilterMode(Qt.MatchContains)
-
-                    # Устанавливаем QCompleter для QComboBox
-                    combo.setCompleter(completer)
+                    line_edit.setCompleter(completer)
+                    line_edit.focusInEvent = partial(focusInEvent, line_edit, completer)
 
                     for mod in self.mods:
                         if (i == 0 and j == 1) or (i == 1 and j in [2, 15]) or (i == 2 and j in [4, 14]) or \
                             (i == 4 and j in [0, 2, 6, 12]) or (i == 5 and j == 1) or \
-                                (i == 6 and j in [0, 2, 7, 10, 16]):  # Условия для голубого цвета
-                            adj_style = "background-color: blue"
-                            if combo.styleSheet() != adj_style:
-                                combo.setStyleSheet(adj_style)  # Устанавливаем фон в голубой
+                                (i == 6 and j in [0, 2, 7, 10, 16]):
+                            adj_style = "background-color: #4D4D5C"
+                            if line_edit.styleSheet() != adj_style:
+                                line_edit.setStyleSheet(adj_style)
                         elif (i == 1 and j == 10) or (i == 3 and j == 1) or (i == 5 and j == 8) or \
-                                (i == 6 and j == 12) or (i == 7 and j in [5, 14]):  # Условия для фиолетового цвета
-                            row_style = "background-color: purple"
-                            if combo.styleSheet() != row_style:
-                                combo.setStyleSheet(row_style)  # Устанавливаем фон в фиолетовый
-                        elif (i == 2 and j == 11) or (i == 3 and j == 15):  # Условия для зеленого цвета
-                            col_style = "background-color: green"
-                            if combo.styleSheet() != col_style:
-                                combo.setStyleSheet(col_style)  # Устанавливаем фон в зеленый
-                        else:
-                            else_style = "background-color: white"
-                            if combo.styleSheet() != else_style:
-                                combo.setStyleSheet(else_style)  # Устанавливаем фон в белый
-                else:
-                    none_style = "background-color: black"
-                    if combo.styleSheet() != none_style:
-                        combo.setStyleSheet(none_style)  # Устанавливаем фон в черный
-                    combo.setEnabled(False)  # Отключаем ячейку
+                                (i == 6 and j == 12) or (i == 7 and j in [5, 14]):
+                            row_style = "background-color: #594D58"
+                            if line_edit.styleSheet() != row_style:
+                                line_edit.setStyleSheet(row_style)
+                        elif (i == 2 and j == 11) or (i == 3 and j == 15):
+                            col_style = "background-color: #59656d"
+                            if line_edit.styleSheet() != col_style:
+                                line_edit.setStyleSheet(col_style)
 
-                self.table.setCellWidget(i, j, combo)
+                    self.table.setCellWidget(i, j, line_edit)
+                else:
+                    item.setBackground(QtGui.QColor("#151515"))
+                    self.table.setItem(i, j, item)
 
         for i in range(self.table.columnCount()):
-            self.table.setColumnWidth(i, 100)  # Устанавливаем ширину колонок
+            self.table.setColumnWidth(i, 100)
 
-        for i in range(self.table.rowCount()):
-            self.table.setRowHeight(i, 60)  # Устанавливаем высоту строк
-
-        # Устанавливаем размер окна, чтобы соответствовать размеру таблицы
         self.resize(self.table.horizontalHeader().length() + 25, self.table.verticalHeader().length() + 60)
 
-        # Ограничиваем максимальный размер окна
-        self.setMaximumSize(QSize(1920, 1080))  # Замените эти значения на желаемый максимальный размер
-
+        self.setMaximumSize(QSize(1920, 1080))
 
     def calculate(self):
         totals = {}
         row_values = {}  # New variable to store row values
         row_modifiers = {}  # New variable to store row modifiers
-        black_cells = {}  # New variable to store black cells
+        disabled_cells = {}  # New variable to store black cells
         cell_multipliers = {}
         # New variable to store column modifiers
         column_modifiers = {}
         # New variable to store black cells in columns
-        black_cells_column = {}
+        disabled_cells_column = {}
 
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
-                combo = self.table.cellWidget(i, j)
-                if combo:
-                    name = combo.currentText()
-                    if name and combo.isEnabled():
+                line_edit = self.table.cellWidget(i, j)
+                if line_edit is None:
+                    if i not in disabled_cells:
+                        disabled_cells[i] = []
+                    disabled_cells[i].append(j)
+                elif line_edit:
+                    name = line_edit.text()
+                    if name:
                         for mod in self.mods:
                             if mod['name'] == name:
                                 value = mod['value'] if 'value' in mod else 0
-                                multiplier = 0  # New variable to store the multiplier
-
-                                # Inside the loop where you process each cell
+                                multiplier = 0
                                 if 'Row' in mod['type']:
                                     if i not in row_modifiers:
                                         row_modifiers[i] = []
@@ -144,102 +146,106 @@ class TableWidget(QWidget):
                                     row_values[i].append({'start': j,
                                                           'value': value, 'multiplier': multiplier,
                                                           'type': mod['type']})
-
-                    if not combo.isEnabled():  # Check if the cell is disabled (black)
-                        if i not in black_cells:
-                            black_cells[i] = []
-                        black_cells[i].append(j)
-
         # Apply row modifiers
         for i in range(self.table.rowCount()):
-            black_cell_indices = sorted(black_cells.get(i, []))
+            black_cell_indices = sorted(disabled_cells.get(i, []))
             row_modifier_intervals = sorted(row_modifiers.get(i, []), key=lambda x: x['start'])
-            for start, end in zip([0] + black_cell_indices, black_cell_indices + [self.table.columnCount()]):
-                for cell_index in range(start, end):
-                    if cell_index in black_cell_indices:  # Skip if the cell is disabled (black)
-                        continue
-                    for interval in row_modifier_intervals:
-                        if start <= interval['start'] < end:
-                            # Add the row modifier's value to the multiplier for the current cell
-                            if (i, cell_index) not in cell_multipliers:
-                                cell_multipliers[(i, cell_index)] = []
-                            cell_multipliers[(i, cell_index)].append({'source': f"Row modifier at ({i}, {interval['start']})", 'value': interval['value']})
-                            break
-                    else:
-                        if (i, cell_index) not in cell_multipliers:
-                            cell_multipliers[(i, cell_index)] = []
-                        cell_multipliers[(i, cell_index)].append({'source': 'No row modifier', 'value': 1})
+            for interval in row_modifier_intervals:
+                start = interval['start']
+                end = next((index for index in black_cell_indices if index > start), self.table.columnCount())
+                # Apply the modifier to the cells to the right of the modifier
+                for cell_index in range(start + 1, end):
+                    # Add the row modifier's value to the multiplier for the current cell
+                    if (i, cell_index) not in cell_multipliers:
+                        cell_multipliers[(i, cell_index)] = []
+                    cell_multipliers[(i, cell_index)].append({'source': f"Row modifier at ({i}, {start})",
+                                                              'value': interval['value']})
+                # Find the previous black cell
+                prev_black_cell = next((index for index in reversed(black_cell_indices) if index < start), -1)
+                # Apply the modifier to the cells to the left of the modifier
+                for cell_index in range(start - 1, prev_black_cell, -1):
+                    # Add the row modifier's value to the multiplier for the current cell
+                    if (i, cell_index) not in cell_multipliers:
+                        cell_multipliers[(i, cell_index)] = []
+                    cell_multipliers[(i, cell_index)].append({'source': f"Row modifier at ({i}, {start})",
+                                                              'value': interval['value']})
 
         # Check for column modifiers and black cells in columns
         for j in range(self.table.columnCount()):
             for i in range(self.table.rowCount()):
-                combo = self.table.cellWidget(i, j)
-                if combo:
-                    name = combo.currentText()
-                    if name and combo.isEnabled():
+                line_edit = self.table.cellWidget(i, j)
+                if line_edit:
+                    name = line_edit.text()
+                    if name and line_edit.isEnabled():
                         for mod in self.mods:
                             if mod['name'] == name:
                                 if 'Column' in mod['type']:
                                     if j not in column_modifiers:
                                         column_modifiers[j] = []
                                     column_modifiers[j].append({'start': i, 'value': mod['value'] / 100})
-                if not combo.isEnabled():  # Check if the cell is disabled (black)
-                    if j not in black_cells_column:
-                        black_cells_column[j] = []
-                    black_cells_column[j].append(i)
+                if line_edit is None:
+                    if j not in disabled_cells_column:
+                        disabled_cells_column[j] = []
+                    disabled_cells_column[j].append(i)
 
         # Apply column modifiers
         for j in range(self.table.columnCount()):
-            black_cell_indices = sorted(black_cells_column.get(j, []))
+            black_cell_indices = sorted(disabled_cells_column.get(j, []))
             column_modifier_intervals = sorted(column_modifiers.get(j, []), key=lambda x: x['start'])
-            for start, end in zip([0] + black_cell_indices, black_cell_indices + [self.table.rowCount()]):
-                for cell_index in range(start, end):
-                    if cell_index in black_cell_indices:  # Skip if the cell is disabled (black)
-                        continue
-                    for interval in column_modifier_intervals:
-                        if start <= interval['start'] < end:
-                            # Add the column modifier's value to the multiplier for the current cell
-                            if (cell_index, j) not in cell_multipliers:
-                                cell_multipliers[(cell_index, j)] = []
-                            cell_multipliers[(cell_index, j)].append({'source': f"Column modifier at ({interval['start']}, {j})", 'value': interval['value']})
-                            break
-                    else:
+            for interval in column_modifier_intervals:
+                start = interval['start']
+                end = next((index for index in black_cell_indices if index > start), self.table.rowCount())
+                # Apply the modifier to the cells below the modifier
+                for cell_index in range(start + 1, end):
+                    # Add the column modifier's value to the multiplier for the current cell
+                    if (cell_index, j) not in cell_multipliers:
+                        cell_multipliers[(cell_index, j)] = []
+                    cell_multipliers[(cell_index, j)].append({'source': f"Column modifier at ({start}, {j})",
+                                                              'value': interval['value']})
+                    # Apply the modifier to the cells above the modifier
+                    for cell_index in range(start - 1, -1, -1):
+                        # Add the column modifier's value to the multiplier for the current cell
                         if (cell_index, j) not in cell_multipliers:
                             cell_multipliers[(cell_index, j)] = []
-                        cell_multipliers[(cell_index, j)].append({'source': 'No column modifier', 'value': 1})
+                        cell_multipliers[(cell_index, j)].append({'source': f"Column modifier at ({start}, {j})",
+                                                                  'value': interval['value']})
 
         # Check for adjacent cells
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
-                combo = self.table.cellWidget(i, j)
-                if combo and combo.isEnabled():
+                line_edit = self.table.cellWidget(i, j)
+                if line_edit and line_edit is not None:
                     for mod in self.mods:
-                        if mod['name'] == combo.currentText() and 'adjacent' in mod['type']:
+                        if mod['name'] == line_edit.text() and 'adjacent' in mod['type']:
                             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                                 adj_i, adj_j = i + dx, j + dy
-                                if 0 <= adj_i < self.table.rowCount() and 0 <= adj_j < self.table.columnCount() and (adj_i, adj_j) not in black_cells:
+                                if 0 <= adj_i < self.table.rowCount(
+
+                                ) and 0 <= adj_j < self.table.columnCount() and (adj_i, adj_j) not in disabled_cells:
                                     if 'value' in mod:
                                         value = mod['value'] / 100  # Divide by 100 here
                                     else:
                                         value = 0
                                     if (adj_i, adj_j) not in cell_multipliers:
                                         cell_multipliers[(adj_i, adj_j)] = []
-                                    cell_multipliers[(adj_i, adj_j)].append({'source': f"Adjacent cell at ({i}, {j})", 'value': value})
+                                    cell_multipliers[(adj_i, adj_j)].append({'source': f"Adjacent cell at ({i}, {j})",
+                                                                             'value': value})
         # Update cell values with multipliers
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
                 if (i, j) in cell_multipliers:
-                    if i in row_values:  # Check if the key exists in the dictionary
+                    if i in row_values:
                         for cell_value in row_values[i]:
                             if cell_value['start'] == j:
-                                cell_value['multiplier'] = 1  # Initialize multiplier as 1
-                                cell_value['multiplier'] += sum(m['value'] for m in cell_multipliers[(i, j)] if m['value'] != 1)  # Exclude multipliers equal to 1
+                                cell_value['multiplier'] = 1
+                                cell_value['multiplier'] += sum(
+                                    m['value'] for m in cell_multipliers[(i, j)] if m['value'] != 1)
 
         # Display final multipliers for each cell
         multiplied_cells = {}
         non_multiplied_cells = {}
         for cell, multipliers in cell_multipliers.items():
-            if cell in black_cells or cell in black_cells_column:  # Skip if the cell is disabled (black)
+            if cell in disabled_cells or cell in disabled_cells_column:  # Skip if the cell is disabled (black)
                 continue
             if any(m['value'] != 1 for m in multipliers):
                 multiplied_cells[cell] = multipliers
@@ -249,19 +255,24 @@ class TableWidget(QWidget):
         # Apply multipliers to cell values and calculate totals
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
-                if (i, j) in cell_multipliers and i in row_values:
+                if i in row_values:
                     for cell_value in row_values[i]:
                         if cell_value['start'] == j:
-                            # Check if the multiplier is from the same row or column and skip if it is
-                            if not any(m['source'] == f"Row modifier at ({i}, {cell_value['start']})" or m['source'] == f"Column modifier at ({cell_value['start']}, {j})" for m in cell_multipliers[(i, j)]):
-                                cell_value['value'] *= cell_value['multiplier']  # Apply the multiplier to the cell value
+                            if (i, j) in cell_multipliers:
+                                # Check if the multiplier is from the same row or column and skip if it is
+                                if not any(
+                                    m['source'] == f"Row modifier at ({i}, {cell_value['start']})" or
+                                    m['source'] == f"Column modifier at ({cell_value['start']}, {j})"
+                                    for m in cell_multipliers[(i, j)]
+                                ):
+                                    cell_value['value'] *= cell_value['multiplier']
                             if cell_value['type'] not in totals:
                                 totals[cell_value['type']] = 0
-                            totals[cell_value['type']] += cell_value['value']  # Add the cell value to the total for its type
+                            totals[cell_value['type']] += cell_value['value']
 
-        # Display totals
+        message_box = QMessageBox()
         message = "\n".join(f"{type}: {total}" for type, total in totals.items())
-        QMessageBox.information(self, "Totals", message)
+        message_box.about(self, "Totals", message)
 
 
 app = QApplication(sys.argv)
