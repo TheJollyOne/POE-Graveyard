@@ -1,16 +1,26 @@
 from PyQt5.QtWidgets import QApplication, QTableWidget, QLineEdit, QWidget, QVBoxLayout, QPushButton, QMessageBox
-from PyQt5.QtWidgets import QListView, QCompleter, QTableWidgetItem, QSizePolicy
+from PyQt5.QtWidgets import QListView, QCompleter, QTableWidgetItem, QListWidget
 from PyQt5.QtCore import Qt, QSize
 from PyQt5 import QtGui
 import sys
 import json
 from functools import partial
+from PyQt5.QtWidgets import QHeaderView
+from collections import Counter
 
 
-def focusInEvent(line_edit, completer, event):
+def focusInEvent(line_edit, completer, event, mods):
     QLineEdit.focusInEvent(line_edit, event)
     if event.reason() == Qt.MouseFocusReason:
         completer.complete()
+
+    def on_completer_activated(completion):
+        for mod in mods:
+            if mod['name'] == completion:
+                line_edit.setText(mod['show'])
+                break
+
+    completer.activated.connect(on_completer_activated)
 
 
 class TableWidget(QWidget):
@@ -37,12 +47,24 @@ class TableWidget(QWidget):
         self.table.verticalHeader().setVisible(False)
         self.table.horizontalHeader().setVisible(False)
 
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.table.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
         self.calculate_button = QPushButton('Calculate')
         self.calculate_button.clicked.connect(self.calculate)
         layout.addWidget(self.calculate_button)
 
+        # Добавьте QListWidget под кнопкой "Calculate"
+        self.mod_list = QListWidget()
+        # self.mod_list.setFlow(QListView.LeftToRight)  # Измените направление на горизонтальное
+        self.mod_list.setWrapping(True)  # Включите автоматический перенос
+        self.mod_list.setFixedHeight(100)  # Установите фиксированную высоту
+        layout.addWidget(self.mod_list)
+
         with open('mods.json', 'r') as f:
             self.mods = json.load(f)
+
+        self.show_to_name = {mod['show']: mod['name'] for mod in self.mods}
 
         for i in range(8):  # Для каждого ряда
             for j in range(17):  # Для каждой колонки
@@ -62,6 +84,7 @@ class TableWidget(QWidget):
                                             QLineEdit { background-color: #2f2f2f; color: #C4C3D0; }
                                             QListView { background-color: #2f2f2f; color: #C4C3D0; }
                                             """)
+                    line_edit.textChanged.connect(self.update_mod_list)
 
                     line_edit.setReadOnly(False)  # разрешаем ввод текста
                     completer = QCompleter([mod['name'] for mod in self.mods], line_edit)
@@ -74,7 +97,7 @@ class TableWidget(QWidget):
                     completer.setCaseSensitivity(Qt.CaseInsensitive)
                     completer.setFilterMode(Qt.MatchContains)
                     line_edit.setCompleter(completer)
-                    line_edit.focusInEvent = partial(focusInEvent, line_edit, completer)
+                    line_edit.focusInEvent = partial(focusInEvent, line_edit, completer, mods=self.mods)
 
                     for mod in self.mods:
                         if (i == 0 and j == 1) or (i == 1 and j in [2, 15]) or (i == 2 and j in [4, 14]) or \
@@ -101,9 +124,10 @@ class TableWidget(QWidget):
         for i in range(self.table.columnCount()):
             self.table.setColumnWidth(i, 100)
 
-        self.resize(self.table.horizontalHeader().length() + 25, self.table.verticalHeader().length() + 60)
+        # self.resize(self.table.horizontalHeader().length() + 25, self.table.verticalHeader().length() + 60)
 
         self.setMaximumSize(QSize(1920, 1080))
+        self.setMinimumSize(QSize(1900, 700))
 
     def calculate(self):
         totals = {}
@@ -115,6 +139,7 @@ class TableWidget(QWidget):
         column_modifiers = {}
         # New variable to store black cells in columns
         disabled_cells_column = {}
+        show_to_name = {mod['show']: mod['name'] for mod in self.mods}
 
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
@@ -124,7 +149,7 @@ class TableWidget(QWidget):
                         disabled_cells[i] = []
                     disabled_cells[i].append(j)
                 elif line_edit:
-                    name = line_edit.text()
+                    name = show_to_name.get(line_edit.text())
                     if name:
                         for mod in self.mods:
                             if mod['name'] == name:
@@ -175,7 +200,7 @@ class TableWidget(QWidget):
             for i in range(self.table.rowCount()):
                 line_edit = self.table.cellWidget(i, j)
                 if line_edit:
-                    name = line_edit.text()
+                    name = show_to_name.get(line_edit.text())
                     if name and line_edit.isEnabled():
                         for mod in self.mods:
                             if mod['name'] == name:
@@ -215,21 +240,25 @@ class TableWidget(QWidget):
             for j in range(self.table.columnCount()):
                 line_edit = self.table.cellWidget(i, j)
                 if line_edit and line_edit is not None:
-                    for mod in self.mods:
-                        if mod['name'] == line_edit.text() and 'adjacent' in mod['type']:
-                            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                                adj_i, adj_j = i + dx, j + dy
-                                if 0 <= adj_i < self.table.rowCount(
+                    # Use the show_to_name dictionary to get the name from the show string
+                    name = show_to_name.get(line_edit.text())
+                    if name:
+                        for mod in self.mods:
+                            if mod['name'] == name and 'adjacent' in mod['type']:
+                                for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                                    adj_i, adj_j = i + dx, j + dy
+                                    if 0 <= adj_i < self.table.rowCount() and 0 <= adj_j < self.table.columnCount(
 
-                                ) and 0 <= adj_j < self.table.columnCount() and (adj_i, adj_j) not in disabled_cells:
-                                    if 'value' in mod:
-                                        value = mod['value'] / 100  # Divide by 100 here
-                                    else:
-                                        value = 0
-                                    if (adj_i, adj_j) not in cell_multipliers:
-                                        cell_multipliers[(adj_i, adj_j)] = []
-                                    cell_multipliers[(adj_i, adj_j)].append({'source': f"Adjacent cell at ({i}, {j})",
-                                                                             'value': value})
+                                    ) and (adj_i, adj_j) not in disabled_cells:
+                                        if 'value' in mod:
+                                            value = mod['value'] / 100  # Divide by 100 here
+                                        else:
+                                            value = 0
+                                        if (adj_i, adj_j) not in cell_multipliers:
+                                            cell_multipliers[(adj_i, adj_j)] = []
+                                        cell_multipliers[(adj_i, adj_j)].append(
+                                            {'source': f"Adjacent cell at ({i}, {j})",
+                                             'value': value})
         # Update cell values with multipliers
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
@@ -273,6 +302,27 @@ class TableWidget(QWidget):
         message_box = QMessageBox()
         message = "\n".join(f"{type}: {total}" for type, total in totals.items())
         message_box.about(self, "Totals", message)
+
+    def update_mod_list(self):
+        # Соберите имена всех модификаторов в таблице
+        mod_names = []
+        for i in range(self.table.rowCount()):
+            for j in range(self.table.columnCount()):
+                line_edit = self.table.cellWidget(i, j)
+                if line_edit is not None:
+                    name = self.show_to_name.get(line_edit.text())
+                    if name is not None:
+                        mod_names.append(name)
+
+        # Подсчитайте количество каждого модификатора
+        mod_counts = Counter(mod_names)
+
+        # Очистите список модификаторов
+        self.mod_list.clear()
+
+        # Добавьте модификаторы в список
+        for name, count in mod_counts.items():
+            self.mod_list.addItem(f"{count} - {name}")
 
 
 app = QApplication(sys.argv)

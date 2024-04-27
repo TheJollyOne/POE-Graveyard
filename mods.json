@@ -2,819 +2,959 @@
     {
         "type": "to Explicit Modifier",
         "value": 1,
-        "name": "+1 Explicit Modifier"
+        "name": "+1 Explicit Modifier",
+        "show": "+1 Explicit"
     },
     {
         "type": "to Explicit Modifier",
         "value": -1,
-        "name": "-1 Explicit Modifier"
+        "name": "-1 Explicit Modifier",
+        "show": "-1 Explicit"
     },
     {
         "type": "% to Quality, up to 30%",
         "value": 5,
         "name": "+5% to Quality, up to 30%",
-        "limit": 30
+        "limit": 30,
+        "show": "+5% Quality"
     },
     {
         "type": "% chance to Fracture an Explicit Modifier",
         "value": 25,
-        "name": "25% chance to Fracture an Explicit Modifier"
+        "name": "25% chance to Fracture an Explicit Modifier",
+        "show": "25% Fracture"
     },
     {
         "type": "% increased chance of Physical Modifiers",
         "value": 200,
-        "name": "200% increased chance of Physical Modifiers"
+        "name": "200% increased chance of Physical Modifiers",
+        "show": "200% Physical"
     },
     {
         "type": "% increased chance of Physical Modifiers",
         "value": 500,
-        "name": "500% increased chance of Physical Modifiers"
+        "name": "500% increased chance of Physical Modifiers",
+        "show": "500% Physical"
     },
     {
         "type": "% increased chance of Fire Modifiers",
         "value": 200,
-        "name": "200% increased chance of Fire Modifiers"
+        "name": "200% increased chance of Fire Modifiers",
+        "show": "200% Fire"
     },
     {
         "type": "% increased chance of Fire Modifiers",
         "value": 500,
-        "name": "500% increased chance of Fire Modifiers"
+        "name": "500% increased chance of Fire Modifiers",
+        "show": "500% Fire"
     },
     {
         "type": "% increased chance of Cold Modifiers",
         "value": 200,
-        "name": "200% increased chance of Cold Modifiers"
+        "name": "200% increased chance of Cold Modifiers",
+        "show": "200% Cold"
     },
     {
         "type": "% increased chance of Cold Modifiers",
         "value": 500,
-        "name": "500% increased chance of Cold Modifiers"
+        "name": "500% increased chance of Cold Modifiers",
+        "show": "500% Cold"
     },
     {
         "type": "% increased chance of Lightning Modifiers",
         "value": 200,
-        "name": "200% increased chance of Lightning Modifiers"
+        "name": "200% increased chance of Lightning Modifiers",
+        "show": "200% Lightning"
     },
     {
         "type": "% increased chance of Lightning Modifiers",
         "value": 500,
-        "name": "500% increased chance of Lightning Modifiers"
+        "name": "500% increased chance of Lightning Modifiers",
+        "show": "500% Lightning"
     },
     {
         "type": "% increased chance of Chaos Modifiers",
         "value": 200,
-        "name": "200% increased chance of Chaos Modifiers"
+        "name": "200% increased chance of Chaos Modifiers",
+        "show": "200% Chaos"
     },
     {
         "type": "% increased chance of Chaos Modifiers",
         "value": 500,
-        "name": "500% increased chance of Chaos Modifiers"
+        "name": "500% increased chance of Chaos Modifiers",
+        "show": "500% Chaos"
     },
     {
         "type": "% increased chance of Life Modifiers",
         "value": 200,
-        "name": "200% increased chance of Life Modifiers"
+        "name": "200% increased chance of Life Modifiers",
+        "show": "200% Life"
     },
     {
         "type": "% increased chance of Life Modifiers",
         "value": 500,
-        "name": "500% increased chance of Life Modifiers"
+        "name": "500% increased chance of Life Modifiers",
+        "show": "500% Life"
     },
     {
         "type": "% increased chance of Mana Modifiers",
         "value": 200,
-        "name": "200% increased chance of Mana Modifiers"
+        "name": "200% increased chance of Mana Modifiers",
+        "show": "200% Mana"
     },
     {
         "type": "% increased chance of Mana Modifiers",
         "value": 500,
-        "name": "500% increased chance of Mana Modifiers"
+        "name": "500% increased chance of Mana Modifiers",
+        "show": "500% Mana"
     },
     {
         "type": "% increased chance of Attack Modifiers",
         "value": 100,
-        "name": "100% increased chance of Attack Modifiers"
+        "name": "100% increased chance of Attack Modifiers",
+        "show": "100% Attack"
     },
     {
         "type": "% increased chance of Attack Modifiers",
         "value": 300,
-        "name": "300% increased chance of Attack Modifiers"
+        "name": "300% increased chance of Attack Modifiers",
+        "show": "300% Attack"
     },
     {
         "type": "% increased chance of Caster Modifiers",
         "value": 100,
-        "name": "100% increased chance of Caster Modifiers"
+        "name": "100% increased chance of Caster Modifiers",
+        "show": "100% Caster"
     },
     {
         "type": "% increased chance of Caster Modifiers",
         "value": 300,
-        "name": "300% increased chance of Caster Modifiers"
+        "name": "300% increased chance of Caster Modifiers",
+        "show": "300% Caster"
     },
     {
         "type": "% increased chance of Elemental Modifiers",
         "value": 100,
-        "name": "100% increased chance of Elemental Modifiers"
+        "name": "100% increased chance of Elemental Modifiers",
+        "show": "100% Elemental"
     },
     {
         "type": "% increased chance of Elemental Modifiers",
         "value": 300,
-        "name": "300% increased chance of Elemental Modifiers"
+        "name": "300% increased chance of Elemental Modifiers",
+        "show": "300% Elemental"
     },
     {
         "type": "% increased chance of Defence Modifiers",
         "value": 200,
-        "name": "200% increased chance of Defence Modifiers"
+        "name": "200% increased chance of Defence Modifiers",
+        "show": "200% Defence"
     },
     {
         "type": "% increased chance of Defence Modifiers",
         "value": 500,
-        "name": "500% increased chance of Defence Modifiers"
+        "name": "500% increased chance of Defence Modifiers",
+        "show": "500% Defence"
     },
     {
         "type": "% increased chance of Critical Modifiers",
         "value": 200,
-        "name": "200% increased chance of Critical Modifiers"
+        "name": "200% increased chance of Critical Modifiers",
+        "show": "200% Critical"
     },
     {
         "type": "% increased chance of Critical Modifiers",
         "value": 500,
-        "name": "500% increased chance of Critical Modifiers"
+        "name": "500% increased chance of Critical Modifiers",
+        "show": "500% Critical"
     },
     {
         "type": "% increased chance of Speed Modifiers",
         "value": 200,
-        "name": "200% increased chance of Speed Modifiers"
+        "name": "200% increased chance of Speed Modifiers",
+        "show": "200% Speed"
     },
     {
         "type": "% increased chance of Speed Modifiers",
         "value": 500,
-        "name": "500% increased chance of Speed Modifiers"
+        "name": "500% increased chance of Speed Modifiers",
+        "show": "500% Speed"
     },
     {
         "type": "% increased chance of Attribute Modifiers",
         "value": 200,
-        "name": "200% increased chance of Attribute Modifiers"
+        "name": "200% increased chance of Attribute Modifiers",
+        "show": "200% Attribute"
     },
     {
         "type": "% increased chance of Attribute Modifiers",
         "value": 500,
-        "name": "500% increased chance of Attribute Modifiers"
+        "name": "500% increased chance of Attribute Modifiers",
+        "show": "500% Attribute"
     },
     {
         "type": "% increased chance of Resistance Modifiers",
         "value": 200,
-        "name": "200% increased chance of Resistance Modifiers"
+        "name": "200% increased chance of Resistance Modifiers",
+        "show": "200% Resistance"
     },
     {
         "type": "% increased chance of Resistance Modifiers",
         "value": 500,
-        "name": "500% increased chance of Resistance Modifiers"
+        "name": "500% increased chance of Resistance Modifiers",
+        "show": "500% Resistance"
     },
     {
         "type": "% increased chance of Gem Modifiers",
         "value": 200,
-        "name": "200% increased chance of Gem Modifiers"
+        "name": "200% increased chance of Gem Modifiers",
+        "show": "200% Gem"
     },
     {
         "type": "% increased chance of Gem Modifiers",
         "value": 500,
-        "name": "500% increased chance of Gem Modifiers"
+        "name": "500% increased chance of Gem Modifiers",
+        "show": "500% Gem"
     },
     {
         "type": "% increased chance of Minion Modifiers",
         "value": 200,
-        "name": "200% increased chance of Minion Modifiers"
+        "name": "200% increased chance of Minion Modifiers",
+        "show": "200% Minion"
     },
     {
         "type": "% increased chance of Minion Modifiers",
         "value": 500,
-        "name": "500% increased chance of Minion Modifiers"
+        "name": "500% increased chance of Minion Modifiers",
+        "show": "500% Minion"
     },
     {
         "type": "Physical Modifiers are X% scarcer",
         "value": 100,
-        "name": "Physical Modifiers are 100% scarcer"
+        "name": "Physical Modifiers are 100% scarcer",
+        "show": "-100% Physical"
     },
     {
         "type": "Physical Modifiers are X% scarcer",
         "value": 300,
-        "name": "Physical Modifiers are 300% scarcer"
+        "name": "Physical Modifiers are 300% scarcer",
+        "show": "-300% Physical"
     },
     {
         "type": "Fire Modifiers are X% scarcer",
         "value": 100,
-        "name": "Fire Modifiers are 100% scarcer"
+        "name": "Fire Modifiers are 100% scarcer",
+        "show": "-100% Fire"
     },
     {
         "type": "Fire Modifiers are X% scarcer",
         "value": 300,
-        "name": "Fire Modifiers are 300% scarcer"
+        "name": "Fire Modifiers are 300% scarcer",
+        "show": "-300% Fire"
     },
     {
         "type": "Cold Modifiers are X% scarcer",
         "value": 100,
-        "name": "Cold Modifiers are 100% scarcer"
+        "name": "Cold Modifiers are 100% scarcer",
+        "show": "-100% Cold"
     },
     {
         "type": "Cold Modifiers are X% scarcer",
         "value": 300,
-        "name": "Cold Modifiers are 300% scarcer"
+        "name": "Cold Modifiers are 300% scarcer",
+        "show": "-300% Cold"
     },
     {
         "type": "Lightning Modifiers are X% scarcer",
         "value": 100,
-        "name": "Lightning Modifiers are 100% scarcer"
+        "name": "Lightning Modifiers are 100% scarcer",
+        "show": "-100% Lightning"
     },
     {
         "type": "Lightning Modifiers are X% scarcer",
         "value": 300,
-        "name": "Lightning Modifiers are 300% scarcer"
+        "name": "Lightning Modifiers are 300% scarcer",
+        "show": "-300% Lightning"
     },
     {
         "type": "Chaos Modifiers are X% scarcer",
         "value": 100,
-        "name": "Chaos Modifiers are 100% scarcer"
+        "name": "Chaos Modifiers are 100% scarcer",
+        "show": "-100% Chaos"
     },
     {
         "type": "Chaos Modifiers are X% scarcer",
         "value": 300,
-        "name": "Chaos Modifiers are 300% scarcer"
+        "name": "Chaos Modifiers are 300% scarcer",
+        "show": "-300% Chaos"
     },
     {
         "type": "Life Modifiers are X% scarcer",
         "value": 100,
-        "name": "Life Modifiers are 100% scarcer"
+        "name": "Life Modifiers are 100% scarcer",
+        "show": "-100% Life"
     },
     {
         "type": "Life Modifiers are X% scarcer",
         "value": 300,
-        "name": "Life Modifiers are 300% scarcer"
+        "name": "Life Modifiers are 300% scarcer",
+        "show": "-300% Life"
     },
     {
         "type": "Mana Modifiers are X% scarcer",
         "value": 100,
-        "name": "Mana Modifiers are 100% scarcer"
+        "name": "Mana Modifiers are 100% scarcer",
+        "show": "-100% Mana"
     },
     {
         "type": "Mana Modifiers are X% scarcer",
         "value": 300,
-        "name": "Mana Modifiers are 300% scarcer"
+        "name": "Mana Modifiers are 300% scarcer",
+        "show": "-300% Mana"
     },
     {
         "type": "Attack Modifiers are X% scarcer",
         "value": 50,
-        "name": "Attack Modifiers are 50% scarcer"
+        "name": "Attack Modifiers are 50% scarcer",
+        "show": "-50% Attack"
     },
     {
         "type": "Attack Modifiers are X% scarcer",
         "value": 150,
-        "name": "Attack Modifiers are 150% scarcer"
+        "name": "Attack Modifiers are 150% scarcer",
+        "show": "-150% Attack"
     },
     {
         "type": "Caster Modifiers are X% scarcer",
         "value": 50,
-        "name": "Caster Modifiers are 50% scarcer"
+        "name": "Caster Modifiers are 50% scarcer",
+        "show": "-50% Caster"
     },
     {
         "type": "Caster Modifiers are X% scarcer",
         "value": 150,
-        "name": "Caster Modifiers are 150% scarcer"
+        "name": "Caster Modifiers are 150% scarcer",
+        "show": "-150% Caster"
     },
     {
         "type": "Elemental Modifiers are X% scarcer",
         "value": 50,
-        "name": "Elemental Modifiers are 50% scarcer"
+        "name": "Elemental Modifiers are 50% scarcer",
+        "show": "-50% Elemental"
     },
     {
         "type": "Elemental Modifiers are X% scarcer",
         "value": 150,
-        "name": "Elemental Modifiers are 150% scarcer"
+        "name": "Elemental Modifiers are 150% scarcer",
+        "show": "-150% Elemental"
     },
     {
         "type": "Defence Modifiers are X% scarcer",
         "value": 100,
-        "name": "Defence Modifiers are 100% scarcer"
+        "name": "Defence Modifiers are 100% scarcer",
+        "show": "-100% Defence"
     },
     {
         "type": "Defence Modifiers are X% scarcer",
         "value": 300,
-        "name": "Defence Modifiers are 300% scarcer"
+        "name": "Defence Modifiers are 300% scarcer",
+        "show": "-300% Defence"
     },
     {
         "type": "Critical Modifiers are X% scarcer",
         "value": 100,
-        "name": "Critical Modifiers are 100% scarcer"
+        "name": "Critical Modifiers are 100% scarcer",
+        "show": "-100% Critical"
     },
     {
         "type": "Critical Modifiers are X% scarcer",
         "value": 300,
-        "name": "Critical Modifiers are 300% scarcer"
+        "name": "Critical Modifiers are 300% scarcer",
+        "show": "-300% Critical"
     },
     {
         "type": "Speed Modifiers are X% scarcer",
         "value": 100,
-        "name": "Speed Modifiers are 100% scarcer"
+        "name": "Speed Modifiers are 100% scarcer",
+        "show": "-100% Speed"
     },
     {
         "type": "Speed Modifiers are X% scarcer",
         "value": 300,
-        "name": "Speed Modifiers are 300% scarcer"
+        "name": "Speed Modifiers are 300% scarcer",
+        "show": "-300% Speed"
     },
     {
         "type": "Attribute Modifiers are X% scarcer",
         "value": 100,
-        "name": "Attribute Modifiers are 100% scarcer"
+        "name": "Attribute Modifiers are 100% scarcer",
+        "show": "-100% Attribute"
     },
     {
         "type": "Attribute Modifiers are X% scarcer",
         "value": 300,
-        "name": "Attribute Modifiers are 300% scarcer"
+        "name": "Attribute Modifiers are 300% scarcer",
+        "show": "-300% Attribute"
     },
     {
         "type": "Resistance Modifiers are X% scarcer",
         "value": 100,
-        "name": "Resistance Modifiers are 100% scarcer"
+        "name": "Resistance Modifiers are 100% scarcer",
+        "show": "-100% Resistance"
     },
     {
         "type": "Resistance Modifiers are X% scarcer",
         "value": 300,
-        "name": "Resistance Modifiers are 300% scarcer"
+        "name": "Resistance Modifiers are 300% scarcer",
+        "show": "-300% Resistance"
     },
     {
         "type": "Gem Modifiers are X% scarcer",
         "value": 100,
-        "name": "Gem Modifiers are 100% scarcer"
+        "name": "Gem Modifiers are 100% scarcer",
+        "show": "-100% Gem"
     },
     {
         "type": "Gem Modifiers are X% scarcer",
         "value": 300,
-        "name": "Gem Modifiers are 300% scarcer"
+        "name": "Gem Modifiers are 300% scarcer",
+        "show": "-300% Gem"
     },
     {
         "type": "Armour Items have a Strength Requirement",
-        "name": "Armour Items have a Strength Requirement"
+        "name": "Armour Items have a Strength Requirement",
+        "show": "Str Requirement"
     },
     {
         "type": "Armour Items do not have a Strength Requirement",
-        "name": "Armour Items do not have a Strength Requirement"
+        "name": "Armour Items do not have a Strength Requirement",
+        "show": "no Str Requirement"
     },
     {
         "type": "Armour Items have a Dexterity Requirement",
-        "name": "Armour Items have a Dexterity Requirement"
+        "name": "Armour Items have a Dexterity Requirement",
+        "show": "Dex Requirement"
     },
     {
         "type": "Armour Items do not have a Dexterity Requirement",
-        "name": "Armour Items do not have a Dexterity Requirement"
+        "name": "Armour Items do not have a Dexterity Requirement",
+        "show": "no Dex Requirement"
     },
     {
         "type": "Armour Items have a Intelligence Requirement",
-        "name": "Armour Items have a Intelligence Requirement"
+        "name": "Armour Items have a Intelligence Requirement",
+        "show": "Int Requirement"
     },
     {
         "type": "Armour Items do not have a Intelligence Requirement",
-        "name": "Armour Items do not have a Intelligence Requirement"
+        "name": "Armour Items do not have a Intelligence Requirement",
+        "show": "no Int Requirement"
     },
     {
         "type": "to Physical Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Physical Modifier Tier Rating"
+        "name": "+50 to Physical Modifier Tier Rating",
+        "show": "+50 Phys Tier"
     },
     {
         "type": "to Physical Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Physical Modifier Tier Rating"
+        "name": "+100 to Physical Modifier Tier Rating",
+        "show": "+100 Phys Tier"
     },
     {
         "type": "to Fire Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Fire Modifier Tier Rating"
+        "name": "+50 to Fire Modifier Tier Rating",
+        "show": "+50 Fire Tier"
     },
     {
         "type": "to Fire Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Fire Modifier Tier Rating"
+        "name": "+100 to Fire Modifier Tier Rating",
+        "show": "+100 Fire Tier"
     },
     {
         "type": "to Cold Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Cold Modifier Tier Rating"
+        "name": "+50 to Cold Modifier Tier Rating",
+        "show": "+50 Cold Tier"
     },
     {
         "type": "to Cold Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Cold Modifier Tier Rating"
+        "name": "+100 to Cold Modifier Tier Rating",
+        "show": "+100 Cold Tier"
     },
     {
         "type": "to Lightning Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Lightning Modifier Tier Rating"
+        "name": "+50 to Lightning Modifier Tier Rating",
+        "show": "+50 Lightning Tier"
     },
     {
         "type": "to Lightning Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Lightning Modifier Tier Rating"
+        "name": "+100 to Lightning Modifier Tier Rating",
+        "show": "+100 Lightning Tier"
     },
     {
         "type": "to Chaos Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Chaos Modifier Tier Rating"
+        "name": "+50 to Chaos Modifier Tier Rating",
+        "show": "+50 Chaos Tier"
     },
     {
         "type": "to Chaos Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Chaos Modifier Tier Rating"
+        "name": "+100 to Chaos Modifier Tier Rating",
+        "show": "+100 Chaos Tier"
     },
     {
         "type": "to Life Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Life Modifier Tier Rating"
+        "name": "+50 to Life Modifier Tier Rating",
+        "show": "+50 Life Tier"
     },
     {
         "type": "to Life Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Life Modifier Tier Rating"
+        "name": "+100 to Life Modifier Tier Rating",
+        "show": "+100 Life Tier"
     },
     {
         "type": "to Mana Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Mana Modifier Tier Rating"
+        "name": "+50 to Mana Modifier Tier Rating",
+        "show": "+50 Mana Tier"
     },
     {
         "type": "to Mana Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Mana Modifier Tier Rating"
+        "name": "+100 to Mana Modifier Tier Rating",
+        "show": "+100 Mana Tier"
     },
     {
         "type": "to Attack Modifier Tier Rating",
         "value": 25,
-        "name": "+25 to Attack Modifier Tier Rating"
+        "name": "+25 to Attack Modifier Tier Rating",
+        "show": "+25 Attack Tier"
     },
     {
         "type": "to Attack Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Attack Modifier Tier Rating"
+        "name": "+50 to Attack Modifier Tier Rating",
+        "show": "+50 Attack Tier"
     },
     {
         "type": "to Caster Modifier Tier Rating",
         "value": 25,
-        "name": "+25 to Caster Modifier Tier Rating"
+        "name": "+25 to Caster Modifier Tier Rating",
+        "show": "+25 Caster Tier"
     },
     {
         "type": "to Caster Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Caster Modifier Tier Rating"
+        "name": "+50 to Caster Modifier Tier Rating",
+        "show": "+50 Caster Tier"
     },
     {
         "type": "to Elemental Modifier Tier Rating",
         "value": 25,
-        "name": "+25 to Elemental Modifier Tier Rating"
+        "name": "+25 to Elemental Modifier Tier Rating",
+        "show": "+25 Elemental Tier"
     },
     {
         "type": "to Elemental Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Elemental Modifier Tier Rating"
+        "name": "+50 to Elemental Modifier Tier Rating",
+        "show": "+50 Elemental Tier"
     },
     {
         "type": "to Defence Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Defence Modifier Tier Rating"
+        "name": "+50 to Defence Modifier Tier Rating",
+        "show": "+50 Defence Tier"
     },
     {
         "type": "to Defence Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Defence Modifier Tier Rating"
+        "name": "+100 to Defence Modifier Tier Rating",
+        "show": "+100 Defence Tier"
     },
     {
         "type": "to Critical Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Critical Modifier Tier Rating"
+        "name": "+50 to Critical Modifier Tier Rating",
+        "show": "+50 Critical Tier"
     },
     {
         "type": "to Critical Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Critical Modifier Tier Rating"
+        "name": "+100 to Critical Modifier Tier Rating",
+        "show": "+100 Critical Tier"
     },
     {
         "type": "to Speed Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Speed Modifier Tier Rating"
+        "name": "+50 to Speed Modifier Tier Rating",
+        "show": "+50 Speed Tier"
     },
     {
         "type": "to Speed Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Speed Modifier Tier Rating"
+        "name": "+100 to Speed Modifier Tier Rating",
+        "show": "+100 Speed Tier"
     },
     {
         "type": "to Attribute Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Attribute Modifier Tier Rating"
+        "name": "+50 to Attribute Modifier Tier Rating",
+        "show": "+50 Attribute Tier"
     },
     {
         "type": "to Attribute Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Attribute Modifier Tier Rating"
+        "name": "+100 to Attribute Modifier Tier Rating",
+        "show": "+100 Attribute Tier"
     },
     {
         "type": "to Resistance Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Resistance Modifier Tier Rating"
+        "name": "+50 to Resistance Modifier Tier Rating",
+        "show": "+50 Resistance Tier"
     },
     {
         "type": "to Resistance Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Resistance Modifier Tier Rating"
+        "name": "+100 to Resistance Modifier Tier Rating",
+        "show": "+100 Resistance Tier"
     },
     {
         "type": "to Gem Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Gem Modifier Tier Rating"
+        "name": "+50 to Gem Modifier Tier Rating",
+        "show": "+50 Gem Tier"
     },
     {
         "type": "to Gem Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Gem Modifier Tier Rating"
+        "name": "+100 to Gem Modifier Tier Rating",
+        "show": "+100 Gem Tier"
     },
     {
         "type": "to Minion Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Minion Modifier Tier Rating"
+        "name": "+50 to Minion Modifier Tier Rating",
+        "show": "+50 Minion Tier"
     },
     {
         "type": "to Minion Modifier Tier Rating",
         "value": 100,
-        "name": "+100 to Minion Modifier Tier Rating"
+        "name": "+100 to Minion Modifier Tier Rating",
+        "show": "+100 Minion Tier"
     },
     {
         "type": "Reveals a Random Craft when Buried, Rarer Crafts are more common",
-        "name": "Reveals a Random Craft when Buried, Rarer Crafts are more common"
+        "name": "Reveals a Random Craft when Buried, Rarer Crafts are more common",
+        "show": "Reveals a Random Craft"
     },
     {
         "type": "% chance to craft an additional Item",
         "value": 20,
-        "name": "20% chance to craft an additional Item"
+        "name": "20% chance to craft an additional Item",
+        "show": "20% additional Item"
     },
     {
         "type": "Reroll Modifier Values of each Explicit Modifier 3 times, keeping the best outcome",
         "value": 3,
-        "name": "Reroll Modifier Values of each Explicit Modifier 3 times, keeping the best outcome"
+        "name": "Reroll Modifier Values of each Explicit Modifier 3 times, keeping the best outcome",
+        "show": "Reroll 3x Explicit"
     },
     {
         "type": "Reroll Modifier Values of each Explicit Modifier 6 times, keeping the best outcome",
         "value": 6,
-        "name": "Reroll Modifier Values of each Explicit Modifier 6 times, keeping the best outcome"
+        "name": "Reroll Modifier Values of each Explicit Modifier 6 times, keeping the best outcome",
+        "show": "Reroll 6x Explicit"
     },
     {
         "type": "25% increased Effect of Corpses in this Grave Row",
         "value": 25,
-        "name": "25% increased Effect of Corpses in this Grave Row"
+        "name": "25% increased Effect of Corpses in this Grave Row",
+        "show": "25% Grave Row"
     },
     {
         "type": "25% increased Effect of Corpses in this Grave Column",
         "value": 25,
-        "name": "25% increased Effect of Corpses in this Grave Column"
+        "name": "25% increased Effect of Corpses in this Grave Column",
+        "show": "25% Grave Column"
     },
     {
         "type": "% increased chance for Prefix Modifiers",
         "value": 100,
-        "name": "100% increased chance for Prefix Modifiers"
+        "name": "100% increased chance for Prefix Modifiers",
+        "show": "100% Prefix"
     },
     {
         "type": "% increased chance for Prefix Modifiers",
         "value": 300,
-        "name": "300% increased chance for Prefix Modifiers"
+        "name": "300% increased chance for Prefix Modifiers",
+        "show": "300% Prefix"
     },
     {
         "type": "% increased chance for Suffix Modifiers",
         "value": 100,
-        "name": "100% increased chance for Suffix Modifiers"
+        "name": "100% increased chance for Suffix Modifiers",
+        "show": "100% Suffix"
     },
     {
         "type": "% increased chance for Suffix Modifiers",
         "value": 300,
-        "name": "300% increased chance for Suffix Modifiers"
+        "name": "300% increased chance for Suffix Modifiers",
+        "show": "300% Suffix"
     },
     {
         "type": "to Item Level",
         "value": 1,
-        "name": "+1 to Item Level"
+        "name": "+1 to Item Level",
+        "show": "+1 Item Level"
     },
     {
         "type": "Creates a Breach Ring",
-        "name": "Creates a Breach Ring"
+        "name": "Creates a Breach Ring",
+        "show": "Breach Ring"
     },
     {
         "type": "Creates a Stygian Vise",
-        "name": "Creates a Stygian Vise"
+        "name": "Creates a Stygian Vise",
+        "show": "Stygian Vise"
     },
     {
         "type": "Reforge socket numbers 30 times, keeping the greatest number of sockets",
         "value": 1,
-        "name": "Reforge socket numbers 30 times, keeping the greatest number of sockets"
+        "name": "Reforge socket numbers 30 times, keeping the greatest number of sockets",
+        "show": "30x sockets"
     },
     {
         "type": "Reforge socket numbers 200 times, keeping the greatest number of sockets",
         "value": 1,
-        "name": "Reforge socket numbers 200 times, keeping the greatest number of sockets"
+        "name": "Reforge socket numbers 200 times, keeping the greatest number of sockets",
+        "show": "200x sockets"
+
     },
     {
         "type": "Reforge socket links 20 times, keeping the greatest number of links",
         "value": 1,
-        "name": "Reforge socket links 20 times, keeping the greatest number of links"
+        "name": "Reforge socket links 20 times, keeping the greatest number of links",
+        "show": "20x links"
     },
     {
         "type": "Reforge socket links 200 times, keeping the greatest number of links",
         "value": 1,
-        "name": "Reforge socket links 200 times, keeping the greatest number of links"
+        "name": "Reforge socket links 200 times, keeping the greatest number of links",
+        "show": "200x links"
     },
     {
         "type": "Randomises the numeric values of base Defences on an Armour x times, keeping the best outcome",
         "value": 3,
-        "name": "Randomises the numeric values of base Defences on an Armour 3 times, keeping the best outcome"
+        "name": "Randomises the numeric values of base Defences on an Armour 3 times, keeping the best outcome",
+        "show": "3x base Defences"
     },
     {
         "type": "Randomises the numeric values of base Defences on an Armour x times, keeping the best outcome",
         "value": 6,
-        "name": "Randomises the numeric values of base Defences on an Armour 6 times, keeping the best outcome"
+        "name": "Randomises the numeric values of base Defences on an Armour 6 times, keeping the best outcome",
+        "show": "6x base Defences"
     },
     {
         "type": "Reroll Implicit Modifier Values x times, keeping the best outcome",
         "value": 3,
-        "name": "Reroll Implicit Modifier Values 3 times, keeping the best outcome"
+        "name": "Reroll Implicit Modifier Values 3 times, keeping the best outcome",
+        "show": "3x Implicit"
     },
     {
         "type": "Reroll Implicit Modifier Values x times, keeping the best outcome",
         "value": 6,
-        "name": "Reroll Implicit Modifier Values 6 times, keeping the best outcome"
+        "name": "Reroll Implicit Modifier Values 6 times, keeping the best outcome",
+        "show": "6x Implicit"
     },
     {
         "type": "% increased chance of Haunted Modifiers",
         "value": 50,
-        "name": "Armour can roll Haunted Modifiers, 50% increased chance of Haunted Modifiers"
+        "name": "Armour can roll Haunted Modifiers, 50% increased chance of Haunted Modifiers",
+        "show": "50% Haunted"
     },
     {
         "type": "% increased chance of Haunted Modifiers",
         "value": 150,
-        "name": "Armour can roll Haunted Modifiers, 150% increased chance of Haunted Modifiers"
+        "name": "Armour can roll Haunted Modifiers, 150% increased chance of Haunted Modifiers",
+        "show": "150% Haunted"
     },
     {
         "type": "Creates a Ring",
-        "name": "Creates a Ring"
+        "name": "Creates a Ring",
+        "show": "Ring"
     },
     {
         "type": "Creates a Amulet",
-        "name": "Creates a Amulet"
+        "name": "Creates a Amulet",
+        "show": "Amulet"
     },
     {
         "type": "Creates a Belt",
-        "name": "Creates a Belt"
+        "name": "Creates a Belt",
+        "show": "Belt"
     },
     {
         "type": "Reroll Base Type x times, keeping the Base Type with the highest Level Requirement",
         "value": 5,
-        "name": "Reroll Base Type 5 times, keeping the Base Type with the highest Level Requirement"
+        "name": "Reroll Base Type 5 times, keeping the Base Type with the highest Level Requirement",
+        "show": "5x Base Type Level"
     },
     {
         "type": "40% increased Effect of Corpses adjacent to this Corpse",
         "value": 40,
-        "name": "40% increased Effect of Corpses adjacent to this Corpse"
+        "name": "40% increased Effect of Corpses adjacent to this Corpse",
+        "show": "40% Adjacent"
     },
     {
-        "type": "% chance for Beast Corpses to not be consumed when Exorcising",
+        "type": "% chance for Corpses to not be consumed when Exorcising",
         "value": 5,
-        "name": "5% chance for Beast Corpses to not be consumed when Exorcising, up to 50%",
-        "limit": 50
-    },
-    {
-        "type": "% chance for Undead Corpses to not be consumed when Exorcising",
-        "value": 5,
-        "name": "5% chance for Undead Corpses to not be consumed when Exorcising, up to 50%",
-        "limit": 50
-    },
-    {
-        "type": "% chance for Humanoid Corpses to not be consumed when Exorcising",
-        "value": 5,
-        "name": "5% chance for Humanoid Corpses to not be consumed when Exorcising, up to 50%",
-        "limit": 50
-    },
-    {
-        "type": "% chance for Construct Corpses to not be consumed when Exorcising",
-        "value": 5,
-        "name": "5% chance for Construct Corpses to not be consumed when Exorcising, up to 50%",
-        "limit": 50
-    },
-    {
-        "type": "% chance for Demon Corpses to not be consumed when Exorcising",
-        "value": 5,
-        "name": "5% chance for Demon Corpses to not be consumed when Exorcising, up to 50%",
-        "limit": 50
+        "name": "5% chance for Corpses to not be consumed when Exorcising, up to 50%",
+        "limit": 50,
+        "show": "5% not consumed"
     },
     {
         "type": "Corpses in adjacent Graves and this Corpse have their crafting outcomes randomised when this Corpse is buried",
-        "name": "Corpses in adjacent Graves and this Corpse have their crafting outcomes randomised when this Corpse is buried"
+        "name": "Corpses in adjacent Graves and this Corpse have their crafting outcomes randomised when this Corpse is buried",
+        "show": "Rnd adjacent craft"
     },
     {
         "type": "% chance to create a Split Copy",
         "value": 25,
-        "name": "25% chance to create a Split Copy"
+        "name": "25% chance to create a Split Copy",
+        "show": "25% Split Copy"
     },
     {
         "type": "% increased chance for Corruption Implicit Modifiers",
         "value": 50,
-        "name": "Item is Corrupted, 50% increased chance for Corruption Implicit Modifiers"
+        "name": "Item is Corrupted, 50% increased chance for Corruption Implicit Modifiers",
+        "show": "50% Corr Implicit"
     },
     {
         "type": "% chance to create a Mirrored Copy",
         "value": 25,
-        "name": "25% chance to create a Mirrored Copy"
+        "name": "25% chance to create a Mirrored Copy",
+        "show": "25% Mirrored Copy"
     },
     {
         "type": "Creates a Talisman",
-        "name": "Creates a Talisman"
+        "name": "Creates a Talisman",
+        "show": "Talisman"
     },
     {
         "type": "Creates a Bone Ring",
-        "name": "Creates a Bone Ring"
+        "name": "Creates a Bone Ring",
+        "show": "Bone Ring"
     },
     {
         "type": "Creates a Ritual Helmet, Gloves or Boots",
-        "name": "Creates a Ritual Helmet, Gloves or Boots"
+        "name": "Creates a Ritual Helmet, Gloves or Boots",
+        "show": "Ritual Base"
     },
     {
         "type": "Creates a Helmet, Gloves or Boots with Ward",
-        "name": "Creates a Helmet, Gloves or Boots with Ward"
+        "name": "Creates a Helmet, Gloves or Boots with Ward",
+        "show": "Ward Base"
     },
     {
         "type": "Creates a Experimented Weapon",
-        "name": "Creates a Experimented Weapon"
+        "name": "Creates a Experimented Weapon",
+        "show": "Experimented Weapon"
     },
     {
         "type": "% chance to create a Mirrored Copy",
         "value": 25,
-        "name": "25% chance to create a Mirrored Copy"
+        "name": "25% chance to create a Mirrored Copy",
+        "show": "25% Mirrored Copy"
     },
     {
         "type": "% increased chance of Shaper or Elder Influence Modifiers",
         "value": 200,
-        "name": "Has Shaper or Elder Influence, 200% increased chance of Influence Modifiers"
+        "name": "Has Shaper or Elder Influence, 200% increased chance of Influence Modifiers",
+        "show": "200% Shaper/Elder"
     },
     {
         "type": "% increased chance of random Conqueror Influence Modifiers",
         "value": 200,
-        "name": "Has random Conqueror Influence, 200% increased chance of Influence Modifiers"
+        "name": "Has random Conqueror Influence, 200% increased chance of Influence Modifiers",
+        "show": "200% Conqueror"
     },
     {
         "type": "Creates a Vermillion Ring",
-        "name": "Creates a Vermillion Ring, Requires at least 1 other Corpse of the same Monster Name"
+        "name": "Creates a Vermillion Ring, Requires at least 1 other Corpse of the same Monster Name",
+        "show": "Vermillion Ring"
     },
     {
         "type": "Item sells for much more to Vendors",
-        "name": "Creates a Vermillion Ring, Requires at least 2 other Corpses of the same Monster Name"
+        "name": "Requires at least 2 other Corpses of the same Monster Name",
+        "show": "Item sells for more"
     },
     {
         "type": "to minimum number of Linked Sockets, up to a maximum of 4",
         "value": 1,
         "name": "+1 to minimum number of Linked Sockets, up to a maximum of 4",
-        "limit": 4
+        "limit": 4,
+        "show": "+1 to min Linked 4"
     },
     {
         "type": "to minimum number of Linked Sockets, up to a maximum of 5",
         "value": 1,
         "name": "+1 to minimum number of Linked Sockets, up to a maximum of 5",
-        "limit": 5
+        "limit": 5,
+        "show": "+1 to min Linked 5"
     },
     {
         "type": "to minimum number of Linked Sockets, up to a maximum of 6",
         "value": 1,
         "name": "+1 to minimum number of Linked Sockets, up to a maximum of 6",
-        "limit": 6
+        "limit": 6,
+        "show": "+1 to min Linked 6"
     },
     {
         "type": "Creates a Steel Ring",
-        "name": "Creates a Steel Ring, Requires at least 1 other Corpse of the same Monster Name"
+        "name": "Creates a Steel Ring, Requires at least 1 other Corpse of the same Monster Name",
+        "show": "Steel Ring"
     },
     {
         "type": "Creates a Opal Ring",
-        "name": "Creates a Opal Ring, Requires at least 1 other Corpse of the same Monster Name"
+        "name": "Creates a Opal Ring, Requires at least 1 other Corpse of the same Monster Name",
+        "show": "Opal Ring"
     },
     {
         "type": "Creates a Iolite Ring",
-        "name": "Creates a Iolite Ring, Requires at least 1 other Corpse of the same Monster Name"
+        "name": "Creates a Iolite Ring, Requires at least 1 other Corpse of the same Monster Name",
+        "show": "Iolite Ring"
     },
     {
         "type": "Creates a Cerulean Ring",
-        "name": "Creates a Cerulean Ring, Requires at least 1 other Corpse of the same Monster Name"
+        "name": "Creates a Cerulean Ring, Requires at least 1 other Corpse of the same Monster Name",
+        "show": "Cerulean Ring"
     },
     {
         "type": "to Modifier Tier Rating",
         "value": 50,
-        "name": "+50 to Modifier Tier Rating"
+        "name": "+50 to Modifier Tier Rating",
+        "show": "+50 Mod Tier"
     },
     {
         "type": "Creates a Grasping Mail",
-        "name": "Creates a Grasping Mail"
+        "name": "Creates a Grasping Mail",
+        "show": "Grasping Mail"
     },
     {
         "type": "Creates a Sacrificial Garb",
-        "name": "Creates a Sacrificial Garb"
+        "name": "Creates a Sacrificial Garb",
+        "show": "Sacrificial Garb"
     }
 ]
